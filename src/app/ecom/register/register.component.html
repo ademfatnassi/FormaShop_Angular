@@ -1,0 +1,132 @@
+<app-header></app-header>
+<div class="card bg-white">
+  <article class="card-body mx-auto" style="max-width: 400px;">
+    <h4 class="card-title mt-3 text-center">Create Account</h4>
+    <p class="text-center">Get started with your free account</p>
+    <p class="divider-text">
+      <span class="bg-light">OR</span>
+    </p>
+    <form [formGroup]="registreForm" (ngSubmit)="register()">
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+        <input name="firstname" formControlName="firstname" class="form-control" placeholder="First name" type="text">
+        <!---->
+        <div *ngIf="firstname.touched && firstname.invalid" class="text-danger">
+          <div *ngIf="firstname.errors.required">
+            Firstname required!
+          </div>
+          <div *ngIf="firstname.errors.pattern">
+            firstname invalid!
+          </div>
+        </div>
+        <!---->
+      </div> <!-- form-group// -->
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+        </div>
+        <input name="lastname" formControlName="lastname" class="form-control" placeholder="Last name" type="email">
+        <!---->
+        <div *ngIf=" lastname.touched &&  lastname.invalid" class="text-danger">
+          <div *ngIf=" lastname.errors.required">
+            Lastname required!
+          </div>
+          <div *ngIf=" lastname.errors.pattern">
+            Lastname invalid!
+          </div>
+        </div>
+        <!---->
+      </div> <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+        </div>
+        <input name="email" formControlName="email" class="form-control" placeholder="Email address" type="email">
+        <!---->
+        <div *ngIf=" email.touched &&  email.invalid" class="text-danger">
+          <div *ngIf=" email.errors.required">
+            Email required!
+          </div>
+          <div *ngIf=" email.errors.pattern">
+            Email invalid!
+          </div>
+        </div>
+        <!---->
+      </div> <!-- form-group end.// -->
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+        </div>
+        <select class="custom-select" style="max-width: 120px;">
+          <option selected="">+216</option>
+          <option value="1">+972</option>
+          <option value="2">+198</option>
+          <option value="3">+701</option>
+        </select>
+        <input name="phone" formControlName="phone" class="form-control" placeholder="Phone number" type="text">
+        <!---->
+        <div *ngIf=" phone.touched &&  phone.invalid" class="text-danger">
+          <div *ngIf=" phone.errors.minlength">
+            phone minimum letters : 8 !
+          </div>
+          <div *ngIf=" phone.errors.maxlength">
+            phone maximum letters: 13!
+          </div>
+          <div *ngIf=" phone.errors.required">
+            phone required!
+          </div>
+          <div *ngIf=" phone.errors.pattern">
+            phone invalid!
+          </div>
+        </div>
+        <!---->
+      </div> <!-- form-group// -->
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        <input name="password" formControlName="password" class="form-control" placeholder="Create password"
+          type="password">
+        <!---->
+        <div *ngIf=" password.touched &&  password.invalid" class="text-danger">
+          <div *ngIf=" password.errors.required">
+            password required!
+          </div>
+          <div *ngIf=" password.errors.pattern">
+            password invalid!
+          </div>
+        </div>
+        <!---->
+      </div> <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        <input name="repassword" formControlName="repassword" class="form-control" placeholder="Repeat password"
+          type="password">
+        <!---->
+        <div *ngIf=" repassword.touched &&  repassword.invalid" class="text-danger">
+          <div *ngIf=" repassword.errors.required">
+            repassword required!
+          </div>
+          <div *ngIf=" repassword.errors.pattern">
+            repassword invalid!
+          </div>
+        </div>
+        <!---->
+      </div> <!-- form-group// -->
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="registreForm.invalid"> Create Account
+        </button>
+      </div> <!-- form-group// -->
+      <p class="text-center">Have an account? <a href="">Log In</a> </p>
+    </form>
+  </article>
+</div> <!-- card.// -->
+
+<app-footer></app-footer>

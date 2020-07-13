@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><span style="font-size: 50px;" [routerLink]="['/admin/dashboard']"><i class="fas fa-tachometer-alt" style="font-size: 50px;"></i>/</span><i class="fas fa-users-cog" style="font-size: 50px;"></i>:Gestion d'utlisateurs</h1>
+  </div>
+</div>
+<ng2-smart-table [settings]="settings" [source]="data" (createConfirm)="onCreateConfirm($event)"
+  (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onSaveConfirm($event)">
+</ng2-smart-table>
+<div class="mt-5"></div>
+<app-footer></app-footer>

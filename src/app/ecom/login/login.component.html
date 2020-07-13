@@ -1,0 +1,39 @@
+<app-header></app-header>
+<div class="container text-center">
+  <form [formGroup]="loginForm" class="form-signin" (ngSubmit)="login()">
+    <img class="mb-4 img" src="../../../assets/images/FormaLabLogo.png" alt="" width="100" height="100">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input formControlName="email" type="email" id="email" name="email" class="form-control" placeholder="Email address">
+    <!---->
+    <div *ngIf=" email.touched &&  email.invalid" class="text-danger">
+      <div *ngIf=" email.errors.required">
+        email required!
+      </div>
+      <div *ngIf=" email.errors.pattern">
+        email invalid!
+      </div>
+    </div>
+    <!---->
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input formControlName="password" type="password" id="password" name="password" class="form-control" placeholder="Password">
+    <!---->
+    <div *ngIf=" password.touched &&  password.invalid" class="text-danger">
+      <div *ngIf=" password.errors.required">
+        password required!
+      </div>
+      <div *ngIf=" password.errors.pattern">
+        password invalid!
+      </div>
+    </div>
+    <!---->
+
+    <button class="btn btn-lg btn-primary btn-block mb-5" type="submit" value="Connexion"
+      [disabled]="loginForm.invalid">Sign in</button>
+  </form>
+</div>
+
+
+<app-footer></app-footer>

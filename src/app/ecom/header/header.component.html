@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/']"><img class="img" src="../../../assets/images/FormaLabLogo.png"
+        width="50" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/']">
+            <i class="fas fa-home"></i>
+            Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-shopping-cart"></i>
+            Cart <span class="badge badge-pill badge-primary">0</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="far fa-question-circle"></i>
+            Help
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['/coming']">Services</a>
+            <a class="dropdown-item" [routerLink]="['/coming']">Contact</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" [routerLink]="['/coming']">About</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown-1" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user"></i>
+            Session
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown-1">
+            <a [routerLink]="['/login']" *ngIf="!isLogged" class="dropdown-item"><i class="fas fa-sign-in-alt"></i> Sign
+              In</a>
+            <a [routerLink]="['/register']" *ngIf="!isLogged" class="dropdown-item"> <i class="fas fa-road"></i>
+              Register</a>
+            <a [routerLink]="['/admin/gestion-users']" *ngIf="isLogged" class="dropdown-item"> Gestion User</a>
+            <a [routerLink]="['/admin/gestion-categories']" *ngIf="isLogged" class="dropdown-item"> Gestion Category</a>
+            <a [routerLink]="['/admin/gestion-products']" *ngIf="isLogged" class="dropdown-item"> Gestion Product</a>
+            <div class="dropdown-divider"></div>
+            <a *ngIf="isLogged" class="dropdown-item" (click)="logout()"> <i class="fas fa-sign-out-alt"></i>Sign
+              Out</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
